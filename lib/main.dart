@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:clippath/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +28,22 @@ class Clipper extends StatefulWidget {
 }
 
 class _ClipperState extends State<Clipper> {
+  @override
+  void initState() {
+    loadWidget();
+    super.initState();
+  }
+
+  loadWidget() async {
+    var _duration = Duration(seconds: 2);
+    return Timer(_duration, navigationPage);
+  }
+
+  void navigationPage() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext context) => Home()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
